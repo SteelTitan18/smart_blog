@@ -1,0 +1,18 @@
+{% extends 'posts/model.html' %}
+
+{% block content %}
+
+<main>
+    {% if request.user.image %}
+        <h2  id="profil"><img class="profile-image" src="{{ request.user.image.url }}" alt="Photo de profil">&nbsp{{ request.user }}</h2>
+    {% else %}
+        <h2  id="profil"><i class="fa-solid fa-circle-user"></i>&nbsp&nbsp&nbsp&nbsp{{ request.user }}</h2>
+    {% endif %}
+    <span class="user-info">Nom d'utilisateur</span> : {{ user.username }}<br/><br/>
+    <span class="user-info">Nom</span> : {{ user.first_name }}<br/><br/>
+    <span class="user-info">Prénom</span> : {{ user.last_name }}<br/><br/>
+    <span class="user-info">Adresse Email</span> : {{ user.email }}<br/><br/>
+    <a href="{% url 'modif-profile' %}"><h2 class="modif-profil"><i class="fa-solid fa-pen"></i>&nbsp&nbspModifier le profil</h2></a>
+</main>
+
+{% endblock %}

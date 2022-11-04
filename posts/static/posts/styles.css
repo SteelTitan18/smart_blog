@@ -1,0 +1,303 @@
+main
+{
+ margin-left: 15%;
+ margin-right: 15%;
+}
+
+#title
+{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 0%;
+    padding: 2%;
+}
+
+.admin-action
+{
+    text-align: center;
+    color: blue;
+}
+
+nav
+{
+    padding-bottom: 2%;
+    border-radius: 15%;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    left: 70%;
+}
+
+a
+{
+    text-decoration: none;
+    color: black;
+}
+
+.user
+{
+    display: block;
+}
+
+.user-menu
+{
+    font-weight: bold;
+    font-size: large;
+    border-radius: 10%;
+    border-width: 0;
+    height: 55px;
+    width: 250px;
+}
+
+.info
+{
+    font-size: 80%;
+}
+
+.comment-info
+{
+    font-size: 80%;
+    margin-top: 1%;
+}
+
+.post-title
+{
+    font-size: 150%;
+    font-style: italic;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.theme
+{
+    position: absolute;
+    left:65%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.posts
+{
+    text-decoration: none;
+    outline: none;
+}
+
+.action
+{
+    position: relative;
+    left: 70%;
+}
+
+.detail-action
+{
+    position: relative;
+    left: 55%;
+}
+
+li
+{
+    list-style-type: none;
+    color: black;
+}
+
+nav
+{
+    text-align: center;
+}
+
+/*main
+{
+    margin: 6%
+}*/
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  /* The actual popup (appears on top) */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 150px;
+    background-color: whitesmoke;
+    color: rgb(17, 10, 10);
+    text-align: left;
+    border-radius: 6px;
+    padding-left: 20%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    padding-left: 20%;
+    position: absolute;
+    z-index: 1;
+    bottom: -180%;
+    left: 50%;
+    margin-left: -120px;
+  }
+  
+  /* Popup arrow */
+  .popup .popuptext::cue {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 0.5s;
+    animation: fadeIn 1s
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+.modif-profil
+{
+    text-align: center;
+}
+
+.user-info
+{
+    font-size: medium;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-left: 20%;
+}
+
+#profil
+{
+    font-size: 50px;
+}
+
+.search-area
+{
+    position: relative;
+    padding-bottom: 5%;
+    width: 300px;
+    left: 50%;
+}
+
+.search-area input
+{
+    height: 30px;
+    width: 200px;
+}
+
+.login-form
+{
+    position:  relative;
+    left: 30%;
+}
+
+input
+{
+    display: inline-block;
+    text-align: left;
+    border-radius: 5px;
+    margin: 1%;
+    height: 20px;
+}
+
+.login-form input
+{
+    /*display: inline-block;
+    text-align: left;
+    border-radius: 5px;
+    height: 20px;
+    margin: 1%;*/
+    margin-left: 8%;
+}
+
+input[type="submit"]
+{
+    width:185px;
+    height: 30px;
+    text-align: center;
+}
+
+.image
+{
+    width: 50%;
+    height: 25%;
+    overflow: hidden;
+    border-radius: 10%;
+    border: 2px solid black;
+    margin: 5%;
+}
+
+.pagination
+{
+    text-align: center;
+}
+
+header
+{
+    margin-bottom: 10%;
+}
+
+body
+{
+    margin: 0%;
+}
+
+.post-content
+{
+    margin-bottom: 15%;
+}
+
+.search-button
+{
+    border: 0px;
+    height: 30px;
+    font-size: larger;
+    background-color: white;
+}
+
+.profile-image
+{
+    width : 150px; height : 150px;
+    overflow: hidden;
+    border: none;
+    -moz-border-radius : 75px;
+    -webkit-border-radius : 75px;
+    border-radius : 75px;
+}
+
+.profile-image-resize
+{
+    width : 50px; height : 50px;
+    overflow: hidden;
+    border: none;
+    -moz-border-radius : 75px;
+    -webkit-border-radius : 75px;
+    border-radius : 75px;
+}
+
+.username
+{
+    font-size: larger;
+}
+
+/*.vertical-line
+{
+    border-left: 2px solid #000;
+    display: inline-block;
+    height: 30px;
+    margin-right:20px;
+}*/
+
+/*.comment
+{
+    margin-bottom: 10%;
+}*/

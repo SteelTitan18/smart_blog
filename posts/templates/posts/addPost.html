@@ -1,0 +1,14 @@
+{% extends 'posts/model.html' %}
+
+{% block content %}
+<main>
+  <form enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    {{ form.as_p}}
+    ...Ou ajouter un thème inexistant
+    <input type="text" name="new_theme" placeholder="Votre thème" /><br/>
+    <input type="submit" value="Ajouter"/>
+  </form>
+
+</main>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'posts/model.html' %}
+
+{% block content %}
+
+<main>
+  <form class="search-area">
+    <input type="search" placeholder="Rechercher..." name="_request" />
+    <button class="search-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+  </form>
+  {% if result != None %}
+    <h2 style="text-align: center">Résultats pour "{{ result }}"</h2>
+  {% else %}
+    <h2 style="text-align: center">Articles</h2>
+  {% endif %}
+  <ul>
+    <HR NOSHADE>
+    {% for post, comment in postD.items %}
+      <a class="posts" href="{% url 'details' post.id %}">
+          <li class="post">
+            <span class="user"><i class="fa-solid fa-circle-user"></i>&nbsp&nbsp&nbsp{{ post.user }}</span><br/>
+            <span class="post-content">
+              <span class="post-title">{{ post.title }}</span>
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+              <span class="theme">Thème : {{ post.theme }}</span><br/>
+              <br/>&nbsp&nbsp&nbsp&nbsp
+              {% if post.illustration %}
+                <i class="fa-solid fa-image"></i>&nbsp&nbsp
+              {% endif %}
+              {{ post.content|truncatechars:50 }}<br/>
+              <span class="info">
+                <br/>Ajouté le {{ post.addDate }} à {{ post.addHour }}
+                <br />Modifié le {{ post.modifDate }} à {{ post.modifHour }}
+              </span><br/>
+              <span class="action">{{ comment }}&nbsp<i class="fa-solid fa-comment"></i>
+              &nbsp&nbsp
+              <a class="action" href="{% url 'home-like' post.id %}">
+                {{ post.like.all|length }}&nbsp<i class="fa-solid fa-thumbs-up"></i>
+              </a>
+              &nbsp&nbsp&nbsp
+              <a class="action" href="{% url 'home-dislike' post.id %}">
+                {{ post.dislike.all|length }}&nbsp<i class="fa-solid fa-thumbs-down"></i>
+              </a>
+              &nbsp&nbsp&nbsp</span>
+            </span>
+          </li>
+          <HR NOSHADE>
+        </a>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'add-post' %}" style="text-align: center; padding-top : 50%"><h2>Ajouter votre article</h2></a>
+
+  <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1"><i class="fa-sharp fa-solid fa-backward"></i></a>&nbsp&nbsp
+            <a href="?page={{ page_obj.previous_page_number }}"><i class="fa-solid fa-caret-left"></i></a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}"><i class="fa-solid fa-caret-right"></i></a>&nbsp&nbsp
+            <a href="?page={{ page_obj.paginator.num_pages }}"><i class="fa-solid fa-forward"></i></a>
+        {% endif %}
+      </span>
+  </div>
+  <script>
+// When the user clicks on <div>, open the popup
+    function myFunction() {
+      var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+    }
+  </script>
+</main>
+
+{% endblock %}

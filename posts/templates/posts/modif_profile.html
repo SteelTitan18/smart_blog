@@ -1,0 +1,18 @@
+{% extends 'posts/model.html' %}
+
+{% block content %}
+
+<main>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="login" value="{{ request.user.username }}"/><br/>
+        <input type="text" name="first_name" placeholder="First name" value="{{ request.user.first_name }}"/><br/>
+        <input type="text" name="last_name" placeholder="Last name" value="{{ request.user.last_name }}"/><br/>
+        <input type="email" name="email" placeholder="Email adress" value="{{ request.user.email }}"/><br/>
+        <input type="password" name="old_password" placeholder="Ancien mot de passe"/><br/>
+        <input type="password" name="new_password" placeholder="Nouveau mot de passe"/><br/>
+        <input type="submit" value="Enregistrer"/>
+    </form>
+</main>
+
+{% endblock %}

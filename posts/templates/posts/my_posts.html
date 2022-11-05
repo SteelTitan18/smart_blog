@@ -9,12 +9,23 @@
     {% for post, comment in postD.items %}
       <a class="posts" href="{% url 'details' post.id %}">
           <li class="post">
-            <span class="user">{{ post.user }}</span><br/>
+            <span class="user">
+              {% if post.user.image %}
+                <img class="profile-image-resizex2" src="{{ request.user.image.url }}" alt="Photo de profil">
+              {% else %}
+                <i class="fa-solid fa-circle-user"></i>
+              {% endif %}
+              &nbsp&nbsp&nbsp{{ post.user }}
+            </span><br/>
             <span class="post-content">
               <span class="post-title">{{ post.title }}</span>
               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
               <span class="theme">Thème : {{ post.theme }}</span><br/>
-              <br/>&nbsp&nbsp&nbsp&nbsp{{ post.content|truncatechars:50 }}<br/>
+              <br/>&nbsp&nbsp&nbsp&nbsp
+              {% if post.illustration %}
+                <i class="fa-solid fa-image"></i>&nbsp&nbsp
+              {% endif %}
+              {{ post.content|truncatechars:50 }}<br/>
               <span class="info">
                 <br/>Ajouté le {{ post.addDate }} à {{ post.addHour }}
                 <br />Modifié le {{ post.modifDate }} à {{ post.modifHour }}

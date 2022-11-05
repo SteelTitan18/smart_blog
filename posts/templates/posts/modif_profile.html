@@ -3,8 +3,10 @@
 {% block content %}
 
 <main>
-    <form method="POST" action="">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
+        Photo de profil :
+        <input type="file" name="profile_image"/><br/>
         <input type="text" name="username" placeholder="login" value="{{ request.user.username }}"/><br/>
         <input type="text" name="first_name" placeholder="First name" value="{{ request.user.first_name }}"/><br/>
         <input type="text" name="last_name" placeholder="Last name" value="{{ request.user.last_name }}"/><br/>

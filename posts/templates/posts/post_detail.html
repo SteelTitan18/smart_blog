@@ -5,7 +5,13 @@
 {% block content %}
 
 <main>
-    <span class="user"><i class="fa-solid fa-circle-user"></i>&nbsp&nbsp&nbsp{{ post.user }}</span><br/>
+    <span class="user">
+    {% if request.user.image %}
+        <img class="profile-image-resize" src="{{ post.user.image.url }}" alt="Photo de profil">
+    {% else %}
+        <i class="fa-solid fa-circle-user"></i>
+    {% endif %}
+    &nbsp&nbsp&nbsp<span class="username">{{ post.user }}</span></span><br/>
     <span class="post-title">{{ post.title }}</span>
     <span class="theme">Thème : {{ post.theme }}</span></br></br>
     {% if post.illustration %}
@@ -43,7 +49,12 @@
     {% for comment in comments %}
 <!--         <span class="vertical-line"></span> -->
         <span class="comment">
-            <i class="fa-solid fa-user"></i></i>&nbsp&nbsp&nbsp{{ comment.user }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            {% if comment.user.image %}
+                <img class="profile-image-resizex2" src="{{ comment.user.image.url }}" alt="Photo de profil">
+            {% else %}
+                <i class="fa-solid fa-user"></i>
+            {% endif %}
+            </i>&nbsp&nbsp&nbsp{{ comment.user }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             {{ comment.content }}</br>
             <span class="comment-info">
                 <br/>Ajouté le {{ comment.addDate }} à {{ comment.addHour }}

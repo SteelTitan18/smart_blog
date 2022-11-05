@@ -79,6 +79,8 @@ def sign_up(request):
         user = User.objects.create_user(username, mail, passw)
         user.first_name = request.POST['first_name']
         user.last_name = request.POST['last_name']
+        if request.FILES['profile_image'] != None:
+            user.image = request.FILES['profile_image']
         user.save()
         return redirect('home')
 
@@ -165,6 +167,8 @@ def modif_profile(request):
         user.first_name = request.POST['first_name']
         user.last_name = request.POST['last_name']
         user.email = request.POST['email']
+        if request.FILES['profile_image'] != None:
+            user.image = request.FILES['profile_image']
         if user == authenticate(username = pseudo, password = request.POST['old_password']):
             user.set_password(request.POST['new_password'])
             redirection = 'connexion'
@@ -173,6 +177,12 @@ def modif_profile(request):
         return redirect('connexion')
 
     return render(request, 'posts/modif_profile.html')
+
+# def modif_profile(request):
+#     user = User.objects.get(id = user_id)
+#
+#     if request.method == 'POST':
+#         form =
 
 def post_delete(request, post_id):
     post = Post.objects.get(id = post_id)

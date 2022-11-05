@@ -17,7 +17,13 @@
     {% for post, comment in postD.items %}
       <a class="posts" href="{% url 'details' post.id %}">
           <li class="post">
-            <span class="user"><i class="fa-solid fa-circle-user"></i>&nbsp&nbsp&nbsp{{ post.user }}</span><br/>
+            <span class="user">
+            {% if post.user.image %}
+              <img class="profile-image-resizex2" src="{{ post.user.image.url }}" alt="Photo de profil">
+            {% else %}
+              <i class="fa-solid fa-circle-user"></i>
+            {% endif %}
+            &nbsp&nbsp&nbsp{{ post.user }}</span><br/>
             <span class="post-content">
               <span class="post-title">{{ post.title }}</span>
               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp

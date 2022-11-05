@@ -284,9 +284,20 @@ body
     border-radius : 75px;
 }
 
+.profile-image-resizex2
+{
+    width : 25px; height : 25px;
+    overflow: hidden;
+    border: none;
+    -moz-border-radius : 75px;
+    -webkit-border-radius : 75px;
+    border-radius : 75px;
+}
+
 .username
 {
     font-size: larger;
+    font-weight: bolder;
 }
 
 /*.vertical-line

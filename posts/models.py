@@ -1,14 +1,17 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+
 class User(AbstractUser):
     image = models.ImageField(verbose_name="Photo de profil", upload_to="profile", blank=True, null=True)
+
 
 class Theme(models.Model):
     label = models.CharField(max_length=30, unique=True)
 
     def __str__(self):
         return self.label
+
 
 class Post(models.Model):
     title = models.CharField(verbose_name="Titre ", max_length=50)
@@ -26,6 +29,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="commenter")
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -37,7 +41,6 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.content
-
 
 # from django.db import models
 # from django.contrib.auth.models import User

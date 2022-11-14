@@ -15,6 +15,7 @@
   <ul>
     <HR NOSHADE>
     {% for post, comment in postD.items %}
+      <span class="theme">{{ post.theme }}</span><br/>
       <a class="posts" href="{% url 'details' post.id %}">
           <li class="post">
             <span class="user">
@@ -25,9 +26,8 @@
             {% endif %}
             &nbsp&nbsp&nbsp{{ post.user }}</span><br/>
             <span class="post-content">
-              <span class="post-title">{{ post.title }}</span>
+              <span class="post-title">{{ post.title }}</span><br/>
               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-              <span class="theme">Thème : {{ post.theme }}</span><br/>
               <br/>&nbsp&nbsp&nbsp&nbsp
               {% if post.illustration %}
                 <i class="fa-solid fa-image"></i>&nbsp&nbsp
@@ -53,7 +53,7 @@
         </a>
     {% endfor %}
   </ul>
-  <a href="{% url 'add-post' %}" style="text-align: center; padding-top : 50%"><h2>Ajouter votre article</h2></a>
+  <a href="{% url 'add-post' %}" style="text-align: center; padding-top : 50%"><h2 class="post-add"><i class="fa-sharp fa-solid fa-plus"></i>&nbsp&nbsp&nbsp&nbspAjouter votre article</h2></a>
 
   <div class="pagination">
     <span class="step-links">
@@ -72,13 +72,6 @@
         {% endif %}
       </span>
   </div>
-  <script>
-// When the user clicks on <div>, open the popup
-    function myFunction() {
-      var popup = document.getElementById("myPopup");
-      popup.classList.toggle("show");
-    }
-  </script>
 </main>
 
 {% endblock %}

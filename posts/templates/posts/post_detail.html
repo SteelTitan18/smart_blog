@@ -13,11 +13,11 @@
     {% endif %}
     &nbsp&nbsp&nbsp<span class="username">{{ post.user }}</span></span><br/>
     <span class="post-title">{{ post.title }}</span>
-    <span class="theme">Thème : {{ post.theme }}</span></br></br>
+    <span class="theme">{{ post.theme }}</span><br/><br/>
     {% if post.illustration %}
         <img class="image" src="{{ post.illustration.url }}" alt="illustration du post">
     {% endif %}
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="post-content">{{ post.content }}</span></br></br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="post-content">{{ post.content }}</span><br/><br/>
     <span class="info">
         <br/>Ajouté le {{ post.addDate }} à {{ post.addHour }}
         <br />Modifié le {{ post.modifDate }} à {{ post.modifHour }}
@@ -30,16 +30,16 @@
         <a href="{% url 'detail-dislike' post.id %}">
             {{ post.dislike.all|length }}&nbsp<i class="fa-solid fa-thumbs-down"></i>
         </a>
-        </br>
-    </span></br>
+        <br/>
+    </span><br/>
     {% if request.user.is_authenticated %}
         {% if post in my_post %}
-            </br>
+            <br/>
             <span>
                 <h4 style="text-align: center">
                     <a href="{% url 'post-update' post.id %}">Modifier</a>&nbsp&nbsp&nbsp
                     <a href="{% url 'post-delete' post.id %}">Supprimer</a>
-                </h4></br></br>
+                </h4><br/><br/>
             </span>
         {% endif %}
     {% endif %}
@@ -54,19 +54,19 @@
             {% else %}
                 <i class="fa-solid fa-user"></i>
             {% endif %}
-            </i>&nbsp&nbsp&nbsp{{ comment.user }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            {{ comment.content }}</br>
+            &nbsp&nbsp&nbsp{{ comment.user }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            {{ comment.content }}<br/>
             <span class="comment-info">
                 <br/>Ajouté le {{ comment.addDate }} à {{ comment.addHour }}
             </span><br/>
             <span class="action">
                 <a href="{% url 'comment-like' post.id comment.id %}">{{ comment.like.all|length }}&nbsp<i class="fa-solid fa-thumbs-up"></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <a href="{% url 'comment-dislike' post.id comment.id %}">{{ comment.dislike.all|length }}&nbsp<i class="fa-solid fa-thumbs-down">&nbsp&nbsp&nbsp</i></a>
-            </span></br>
-        </span></br></br>
+            </span><br/>
+        </span><br/><br/>
     {% endfor %}
 
-    </br><HR NOSHADE></br>
+    <br/><HR NOSHADE><br/>
     <h2 style="text-align: center">Ajouter votre commentaire</h2>
     <form action="" method="POST">
         {% csrf_token %}

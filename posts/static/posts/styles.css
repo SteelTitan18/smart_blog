@@ -2,6 +2,7 @@ main
 {
  margin-left: 15%;
  margin-right: 15%;
+ margin-bottom: 5%;
 }
 
 #title
@@ -71,6 +72,11 @@ a
     position: absolute;
     left:65%;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: #a6c1b8;
+    /*width:100px; height:60px;*/
+    clip-path:inset(25% 0 25% 0 round 0 25% 0 25%);
+    text-align: center;
+    padding: 1%;
 }
 
 .posts
@@ -112,7 +118,7 @@ nav
     display: inline-block;
     cursor: pointer;
   }
-  
+
   /* The actual popup (appears on top) */
   .popup .popuptext {
     visibility: hidden;
@@ -131,7 +137,7 @@ nav
     left: 50%;
     margin-left: -120px;
   }
-  
+
   /* Popup arrow */
   .popup .popuptext::cue {
     content: "";
@@ -143,20 +149,20 @@ nav
     border-style: solid;
     border-color: #555 transparent transparent transparent;
   }
-  
+
   /* Toggle this class when clicking on the popup container (hide and show the popup) */
   .popup .show {
     visibility: visible;
     -webkit-animation: fadeIn 0.5s;
     animation: fadeIn 1s
   }
-  
+
   /* Add animation (fade in the popup) */
   @-webkit-keyframes fadeIn {
     from {opacity: 0;}
     to {opacity: 1;}
   }
-  
+
   @keyframes fadeIn {
     from {opacity: 0;}
     to {opacity:1 ;}
@@ -243,7 +249,8 @@ input[type="submit"]
 
 header
 {
-    margin-bottom: 10%;
+    margin-bottom: 5%;
+    background-color: #a6c1b8;
 }
 
 body
@@ -299,6 +306,31 @@ body
     font-size: larger;
     font-weight: bolder;
 }
+
+.post-add
+{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    background-color: #a6c1b8;
+    border-radius: 10%;
+    display: inline-block;
+    position: relative;
+    left: 35%;
+}
+
+/*#banner #menu a {
+    text-align: center;
+    background: #333;
+    color: #fafafa !important;
+    margin: 3px 0;
+    padding: 3px 18px 3px 6px;
+    display: block;
+    position: relative;
+}*/
 
 /*.vertical-line
 {

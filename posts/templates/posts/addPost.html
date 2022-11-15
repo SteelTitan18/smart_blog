@@ -2,7 +2,7 @@
 
 {% block content %}
 <main>
-  <form enctype="multipart/form-data" method="POST">
+  <form class="post-form" enctype="multipart/form-data" method="POST">
     {% csrf_token %}
     {{ form.as_p}}
     ...Ou ajouter un thème inexistant

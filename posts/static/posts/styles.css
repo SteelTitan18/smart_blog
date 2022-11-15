@@ -43,10 +43,11 @@ a
 {
     font-weight: bold;
     font-size: large;
-    border-radius: 10%;
+    border-radius: 10px;
     border-width: 0;
     height: 58px;
     width: 250px;
+    background-color: #a6c1b8;
 }
 
 .info
@@ -211,8 +212,10 @@ input
     display: inline-block;
     text-align: left;
     border-radius: 5px;
+    border: 3px;
     margin: 1%;
-    height: 20px;
+    height: 25px;
+    background: #a6c1b8;
 }
 
 .login-form input
@@ -316,7 +319,7 @@ body
     padding-left: 2%;
     padding-right: 2%;
     background-color: #a6c1b8;
-    border-radius: 10%;
+    border-radius: 10px;
     display: inline-block;
     position: relative;
     left: 35%;
@@ -344,7 +347,7 @@ body
   padding: 10px;
   outline: 0;
   border: 3px solid #a6c1b8;
-  border-radius: 8%;
+  border-radius: 20px;
   background: #a6c1b8;
   line-height: 20px;
 }
@@ -353,6 +356,38 @@ body
 {
   width: 100px;
 }
+
+.post-form input[type="submit"]
+{
+  margin-top: 50px;
+  text-align: center;
+  position: relative;
+  left: 25%;
+}
+
+.post-form textarea
+{
+  display: inline-block;
+  text-align: left;
+  border-radius: 5px;
+  border: 3px;
+  background: #a6c1b8;
+  margin: 1%;
+  width: 60%;
+  height: 100px;
+}
+
+.login-form input[type="submit"]
+{
+  margin-top: 30px;
+}
+
+input[type="submit"]
+{
+  border-left: 5px solid;
+  border-left-color: black;
+}
+
 
 /*#banner #menu a {
     text-align: center;

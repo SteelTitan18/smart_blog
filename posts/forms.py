@@ -9,6 +9,10 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'content', 'illustration', 'theme']
+        widgets = {
+            'title' : forms.TextInput(attrs = {'placeholder': 'Titre'}),
+            'content' : forms.Textarea(attrs = {'placeholder': 'Contenu'})
+        }
 
 
 class CommentForm(forms.ModelForm):

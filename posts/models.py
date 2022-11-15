@@ -14,8 +14,8 @@ class Theme(models.Model):
 
 
 class Post(models.Model):
-    title = models.CharField(verbose_name="Titre ", max_length=50)
-    content = models.TextField(verbose_name="Contenu ", unique=True)
+    title = models.CharField(verbose_name="", max_length=50)
+    content = models.TextField(verbose_name="", unique=True)
     illustration = models.ImageField(default=None, blank=True, null=True, upload_to='images/illustrations/%Y/%m/%d/')
     theme = models.ForeignKey(Theme, verbose_name="Thème ", on_delete=models.CASCADE)
     like = models.ManyToManyField(User, related_name="liker")

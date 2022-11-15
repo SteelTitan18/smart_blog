@@ -7,6 +7,7 @@
   <ul>
     <HR NOSHADE>
     {% for post, comment in postD.items %}
+      <span class="theme">{{ post.theme }}</span><br/>
       <a class="posts" href="{% url 'details' post.id %}">
           <li class="post">
             <span class="user">
@@ -18,9 +19,8 @@
               &nbsp&nbsp&nbsp{{ post.user }}
             </span><br/>
             <span class="post-content">
-              <span class="post-title">{{ post.title }}</span>
+              <span class="post-title">{{ post.title }}</span><br/>
               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-              <span class="theme">Thème : {{ post.theme }}</span><br/>
               <br/>&nbsp&nbsp&nbsp&nbsp
               {% if post.illustration %}
                 <i class="fa-solid fa-image"></i>&nbsp&nbsp

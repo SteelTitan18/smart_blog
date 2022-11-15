@@ -33,7 +33,7 @@ class Post(models.Model):
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="commenter")
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    content = models.TextField(verbose_name="Commentaire ", unique=True)
+    content = models.TextField(verbose_name="", unique=True)
     like = models.ManyToManyField(User, related_name="comment_liker")
     dislike = models.ManyToManyField(User, related_name="comment_disliker")
     addHour = models.TimeField(auto_now=True, auto_now_add=False)

@@ -322,6 +322,38 @@ body
     left: 35%;
 }
 
+.sign-up_form
+{
+  text-align: center;
+}
+
+.sign-up_form input[type="submit"]
+{
+  width: 100px;
+}
+
+.comment-form
+{
+  text-align: center;
+}
+
+.comment-form textarea
+{
+  width: 60%;
+  height: 100px;
+  padding: 10px;
+  outline: 0;
+  border: 3px solid #a6c1b8;
+  border-radius: 8%;
+  background: #a6c1b8;
+  line-height: 20px;
+}
+
+.comment-form input[type="submit"]
+{
+  width: 100px;
+}
+
 /*#banner #menu a {
     text-align: center;
     background: #333;

@@ -68,7 +68,7 @@
 
     <br/><HR NOSHADE><br/>
     <h2 style="text-align: center">Ajouter votre commentaire</h2>
-    <form action="" method="POST">
+    <form class="comment-form" method="POST">
         {% csrf_token %}
         {{ form.as_p}}
         <input type="submit" value="Ajouter"/>

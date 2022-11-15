@@ -4,7 +4,7 @@
 <html lang="">
   <head>
     <meta charset="utf-8">
-    <title>Nice Share</title>
+    <title>Smart Sharing</title>
     <link rel="stylesheet" href="{% static 'posts/styles.css' %}" />
     <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css"/>
     <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css"/>
@@ -13,13 +13,15 @@
 
   <body>
     <header>
-      <h1>Nice Share</h1>
-      <a href="{% url 'home' %}" style="font-weight: bold; text-align: left; position: relative; left: 80%"><i class="fa-solid fa-house"></i>&nbsp&nbsp&nbspAcceuil</a><br/>
+      <h1  id="title">Smart Sharing</h1>
+      <nav>
+        <a href="{% url 'home' %}" style="font-weight: bold; text-align: left; font-size: x-large;"><i class="fa-solid fa-house"></i>&nbsp&nbsp&nbspAcceuil</a>
+      </nav>
     </header>
 
     <main>
       <h2>Créer un compte</h2>
-      <form method="POST" enctype="multipart/form-data">
+      <form method="POST" enctype="multipart/form-data" class="sign-up_form">
           {% csrf_token %}
           Photo de profil :
           <input type="file" name="profile_image"/><br/>

@@ -151,6 +151,18 @@ def my_posts(request):
     number = request.GET.get('page')
     postList = paginator.get_page(number)
     themes = Theme.objects.all()
+    posts = []
+
+    if request.method == "GET":
+        _request = request.GET.get('_request')
+        if _request is not None:
+            postList = list(Post.objects.filter(title__icontains=_request))
+            for th in themes:
+                if _request.lower() == th.label.lower():
+                    posts = list(Post.objects.filter(theme=th))
+            for post in posts:
+                if post not in postList:
+                    postList.append(post)
 
     for _post in postList:
         comment = Comment.objects.filter(post=_post).count()

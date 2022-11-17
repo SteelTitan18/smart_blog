@@ -10,48 +10,50 @@
   {% if result != None %}
     <h2 style="text-align: center">Résultats pour "{{ result }}"</h2>
   {% else %}
-    <h2 style="text-align: center">Articles</h2>
+    <h2 style="text-align: center; font-size: 30px; margin-top: 80px;">Articles</h2>
   {% endif %}
   <ul>
     <HR NOSHADE>
     {% for post, comment in postD.items %}
-      <span class="theme">{{ post.theme }}</span><br/>
-      <a class="posts" href="{% url 'details' post.id %}">
-          <li class="post">
-            <span class="user">
-            {% if post.user.image %}
-              <img class="profile-image-resizex2" src="{{ post.user.image.url }}" alt="Photo de profil">
-            {% else %}
-              <i class="fa-solid fa-circle-user"></i>
-            {% endif %}
-            &nbsp&nbsp&nbsp{{ post.user }}</span><br/>
-            <span class="post-content">
-              <span class="post-title">{{ post.title }}</span><br/>
-              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-              <br/>&nbsp&nbsp&nbsp&nbsp
-              {% if post.illustration %}
-                <i class="fa-solid fa-image"></i>&nbsp&nbsp
+      <div class="post">
+        <span class="theme">{{ post.theme }}</span><br/>
+        <a class="posts" href="{% url 'details' post.id %}">
+            <li class="post">
+              <span class="user">
+              {% if post.user.image %}
+                <img class="profile-image-resizex2" src="{{ post.user.image.url }}" alt="Photo de profil">
+              {% else %}
+                <i class="fa-solid fa-circle-user"></i>
               {% endif %}
-              {{ post.content|truncatechars:50 }}<br/>
-              <span class="info">
-                <br/>Ajouté le {{ post.addDate }} à {{ post.addHour }}
-                <br />Modifié le {{ post.modifDate }} à {{ post.modifHour }}
-              </span><br/>
-              <span class="action">{{ comment }}&nbsp<i class="fa-solid fa-comment"></i>
-              &nbsp&nbsp
-              <a class="action" href="{% url 'home-like' post.id %}">
-                {{ post.like.all|length }}&nbsp<i class="fa-solid fa-thumbs-up"></i>
-              </a>
-              &nbsp&nbsp&nbsp
-              <a class="action" href="{% url 'home-dislike' post.id %}">
-                {{ post.dislike.all|length }}&nbsp<i class="fa-solid fa-thumbs-down"></i>
-              </a>
-              &nbsp&nbsp&nbsp</span>
-            </span>
-          </li>
-          <HR NOSHADE>
-        </a>
+              &nbsp&nbsp&nbsp{{ post.user }}</span><br/>
+              <span class="post-content">
+                <span class="post-title">{{ post.title }}</span><br/>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <br/>&nbsp&nbsp&nbsp&nbsp
+                {% if post.illustration %}
+                  <i class="fa-solid fa-image"></i>&nbsp&nbsp
+                {% endif %}
+                {{ post.content|truncatechars:50 }}<br/>
+                <span class="info">
+                  <br/>Ajouté le {{ post.addDate }} à {{ post.addHour }}
+                  <br />Modifié le {{ post.modifDate }} à {{ post.modifHour }}
+                </span><br/>
+                <span class="action">{{ comment }}&nbsp<i class="fa-solid fa-comment"></i>
+                &nbsp&nbsp
+                <a class="action" href="{% url 'home-like' post.id %}">
+                  {{ post.like.all|length }}&nbsp<i class="fa-solid fa-thumbs-up"></i>
+                </a>
+                &nbsp&nbsp&nbsp
+                <a class="action" href="{% url 'home-dislike' post.id %}">
+                  {{ post.dislike.all|length }}&nbsp<i class="fa-solid fa-thumbs-down"></i>
+                </a>
+                &nbsp&nbsp&nbsp</span>
+              </span>
+            </li>
+          </a>
+        </div>
     {% endfor %}
+    <HR NOSHADE>
   </ul>
   <a href="{% url 'add-post' %}" style="text-align: center; padding-top : 50%"><h2 class="post-add"><i class="fa-sharp fa-solid fa-plus"></i>&nbsp&nbsp&nbsp&nbspAjouter votre article</h2></a>
 

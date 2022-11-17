@@ -3,48 +3,58 @@
 {% block content %}
 
 <main>
-    <br/><h2 style="text-align: center">Vos articles</h2>
+  <form class="search-area">
+    <input type="search" placeholder="Rechercher..." name="_request" />
+    <button class="search-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+  </form>
+  {% if result != None %}
+    <h2 style="text-align: center">Résultats pour "{{ result }}"</h2>
+  {% else %}
+    <h2 style="text-align: center; font-size: 30px; margin-top: 80px;">Vos articles</h2>
+  {% endif %}
   <ul>
     <HR NOSHADE>
     {% for post, comment in postD.items %}
-      <span class="theme">{{ post.theme }}</span><br/>
-      <a class="posts" href="{% url 'details' post.id %}">
-          <li class="post">
-            <span class="user">
-              {% if post.user.image %}
-                <img class="profile-image-resizex2" src="{{ request.user.image.url }}" alt="Photo de profil">
-              {% else %}
-                <i class="fa-solid fa-circle-user"></i>
-              {% endif %}
-              &nbsp&nbsp&nbsp{{ post.user }}
-            </span><br/>
-            <span class="post-content">
-              <span class="post-title">{{ post.title }}</span><br/>
-              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-              <br/>&nbsp&nbsp&nbsp&nbsp
-              {% if post.illustration %}
-                <i class="fa-solid fa-image"></i>&nbsp&nbsp
-              {% endif %}
-              {{ post.content|truncatechars:50 }}<br/>
-              <span class="info">
-                <br/>Ajouté le {{ post.addDate }} à {{ post.addHour }}
-                <br />Modifié le {{ post.modifDate }} à {{ post.modifHour }}
+      <div class="post">
+        <span class="theme">{{ post.theme }}</span><br/>
+        <a class="posts" href="{% url 'details' post.id %}">
+            <li class="post">
+              <span class="user">
+                {% if post.user.image %}
+                  <img class="profile-image-resizex2" src="{{ request.user.image.url }}" alt="Photo de profil">
+                {% else %}
+                  <i class="fa-solid fa-circle-user"></i>
+                {% endif %}
+                &nbsp&nbsp&nbsp{{ post.user }}
               </span><br/>
-              <span class="action">{{ comment }}&nbsp<i class="fa-solid fa-comment"></i>
-              &nbsp&nbsp
-              <a class="action" href="{% url 'mypost-like' post.id %}">
-                {{ post.like.all|length }}&nbsp<i class="fa-solid fa-thumbs-up"></i>
-              </a>
-              &nbsp&nbsp
-              <a class="action" href="{% url 'mypost-dislike' post.id %}">
-                {{ post.dislike.all|length }}&nbsp<i class="fa-solid fa-thumbs-down"></i>
-              </a>
+              <span class="post-content">
+                <span class="post-title">{{ post.title }}</span><br/>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <br/>&nbsp&nbsp&nbsp&nbsp
+                {% if post.illustration %}
+                  <i class="fa-solid fa-image"></i>&nbsp&nbsp
+                {% endif %}
+                {{ post.content|truncatechars:50 }}<br/>
+                <span class="info">
+                  <br/>Ajouté le {{ post.addDate }} à {{ post.addHour }}
+                  <br />Modifié le {{ post.modifDate }} à {{ post.modifHour }}
+                </span><br/>
+                <span class="action">{{ comment }}&nbsp<i class="fa-solid fa-comment"></i>
+                &nbsp&nbsp
+                <a class="action" href="{% url 'mypost-like' post.id %}">
+                  {{ post.like.all|length }}&nbsp<i class="fa-solid fa-thumbs-up"></i>
+                </a>
+                &nbsp&nbsp
+                <a class="action" href="{% url 'mypost-dislike' post.id %}">
+                  {{ post.dislike.all|length }}&nbsp<i class="fa-solid fa-thumbs-down"></i>
+                </a>
+                </span>
               </span>
-            </span>
-          </li>
-          <HR NOSHADE>
-        </a>
+            </li>
+          </a>
+        </div>
     {% endfor %}
+    <HR NOSHADE>
   </ul>
   <a href="{% url 'add-post' %}" style="text-align: center"><h2 class="post-add"><i class="fa-sharp fa-solid fa-plus"></i>&nbsp&nbsp&nbsp&nbspAjouter votre article</h2></a>
 

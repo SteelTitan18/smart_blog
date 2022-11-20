@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Aldrich');
+
 main
 {
  margin-left: 15%;
@@ -70,14 +72,14 @@ a
 
 .theme
 {
-  font-weight: bold;
-    position: absolute;
-    left:65%;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    background-color: #a6c1b8;
-    clip-path:inset(25% 0 25% 0 round 0 25% 0 25%);
-    text-align: center;
-    padding: 1%;
+  /*font-weight: bold;*/
+  position: absolute;
+  left:65%;
+  font-family: Aldrich, sans-serif;
+  background-color: #a6c1b8;
+  clip-path:inset(25% 0 25% 0 round 0 25% 0 25%);
+  text-align: center;
+  padding: 1%;
 }
 
 .posts
@@ -385,3 +387,13 @@ input[type="submit"]
   border-radius: 20px;
   background-color: beige;
 }
+
+/*@import url('https://fonts.googleapis.com/css?family=Aclonica');
+.{
+    font-family: Aclonica, sans-serif;
+    text-align: center;
+    font-size: 35px;
+    color: rgb(0, 255, 255);
+    background-color: rgb(84, 84, 84);
+    text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+}*/

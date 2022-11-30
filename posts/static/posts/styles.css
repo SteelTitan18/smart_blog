@@ -16,8 +16,14 @@ main
 
 .admin-action
 {
+    position: absolute;
+    left: 40%;
     text-align: center;
-    color: blue;
+    border-radius: 10px;
+    background-color: #a6c1b8;
+    width: 300px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 nav

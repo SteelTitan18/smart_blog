@@ -186,7 +186,7 @@ def modif_profile(request):
         user.email = request.POST['email']
         if request.FILES:
             user.image = request.FILES['profile_image']
-        if request.POST['clean']:
+        if request.POST.get('clean', False):
             user.image = None
         if user == authenticate(username=pseudo, password=request.POST['old_password']):
             user.set_password(request.POST['new_password'])
@@ -197,12 +197,6 @@ def modif_profile(request):
 
     return render(request, 'posts/modif_profile.html')
 
-
-# def modif_profile(request):
-#     user = User.objects.get(id = user_id)
-#
-#     if request.method == 'POST':
-#         form =
 
 def post_delete(request, post_id):
     post = Post.objects.get(id=post_id)

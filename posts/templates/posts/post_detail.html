@@ -36,10 +36,10 @@
         {% if post in my_post %}
             <br/>
             <span>
-                <h4 style="text-align: center">
-                    <a href="{% url 'post-update' post.id %}">Modifier</a>&nbsp&nbsp&nbsp
+                <h4 class="admin-action">
+                    <a href="{% url 'post-update' post.id %}">Modifier</a>&nbsp&nbsp&nbsp|&nbsp&nbsp
                     <a href="{% url 'post-delete' post.id %}">Supprimer</a>
-                </h4><br/><br/>
+                </h4><br/><br/><br/><br/>
             </span>
         {% endif %}
     {% endif %}

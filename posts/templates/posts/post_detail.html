@@ -13,7 +13,9 @@
     {% endif %}
     &nbsp&nbsp&nbsp<span class="username">{{ post.user }}</span></span><br/>
     <span class="post-title">{{ post.title }}</span>
-    <span class="theme">{{ post.theme }}</span><br/><br/>
+    {% for th in post.theme.all %}
+      <span class="theme">{{ th }}</span><br/>
+    {% endfor %}
     {% if post.illustration %}
         <img class="image" src="{{ post.illustration.url }}" alt="illustration du post">
     {% endif %}

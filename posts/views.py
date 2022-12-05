@@ -33,6 +33,7 @@ def home(request):
                     postList.append(post)
 
     for _post in postList:
+        print(_post.theme)
         comment = Comment.objects.filter(post=_post).count()
         postDic[_post] = (comment)
     addPost(request)

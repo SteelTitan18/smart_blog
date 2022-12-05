@@ -16,7 +16,9 @@
     <HR NOSHADE>
     {% for post, comment in postD.items %}
       <div class="post">
-        <span class="theme">{{ post.theme }}</span><br/>
+        {% for th in post.theme.all %}
+          <span class="theme">{{ th }}</span><br/>
+        {% endfor %}
         <a class="posts" href="{% url 'details' post.id %}">
             <li class="post">
               <span class="user">

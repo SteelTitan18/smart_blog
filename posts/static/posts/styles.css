@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Aldrich');
 
+body
+{
+  font-size: 18px;
+}
+
+a, button, input[type="submit"]
+{
+  cursor: pointer;
+}
+
 main
 {
  margin-left: 15%;
@@ -338,6 +348,11 @@ body
   text-align: center;
 }
 
+input, textarea
+{
+  padding-left: 10px;
+}
+
 .comment-form textarea
 {
   width: 60%;
@@ -393,13 +408,3 @@ input[type="submit"]
   border-radius: 20px;
   background-color: beige;
 }
-
-/*@import url('https://fonts.googleapis.com/css?family=Aclonica');
-.{
-    font-family: Aclonica, sans-serif;
-    text-align: center;
-    font-size: 35px;
-    color: rgb(0, 255, 255);
-    background-color: rgb(84, 84, 84);
-    text-shadow: rgb(0, 0, 0) 2px 2px 2px;
-}*/

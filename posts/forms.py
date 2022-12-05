@@ -11,7 +11,8 @@ class PostForm(forms.ModelForm):
         fields = ['title', 'content', 'illustration', 'theme']
         widgets = {
             'title' : forms.TextInput(attrs = {'placeholder': 'Titre'}),
-            'content' : forms.Textarea(attrs = {'placeholder': 'Contenu'})
+            'content' : forms.Textarea(attrs = {'placeholder': 'Contenu'}),
+            'theme' : widget=forms.CheckboxSelectMultiple()
         }
 
 

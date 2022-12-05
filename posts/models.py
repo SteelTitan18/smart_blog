@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 from django.contrib.auth.models import AbstractUser
 
 
@@ -17,7 +18,8 @@ class Post(models.Model):
     title = models.CharField(verbose_name="", max_length=50)
     content = models.TextField(verbose_name="", unique=True)
     illustration = models.ImageField(default=None, blank=True, null=True, upload_to='images/illustrations/%Y/%m/%d/')
-    theme = models.ForeignKey(Theme, verbose_name="Thème ", on_delete=models.CASCADE)
+    #theme = models.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=Theme.ob)
+    theme = models.ManyToManyField(Theme, verbose_name="Thème ")
     like = models.ManyToManyField(User, related_name="liker")
     dislike = models.ManyToManyField(User, related_name="disliker")
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="poster")

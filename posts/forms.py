@@ -12,7 +12,7 @@ class PostForm(forms.ModelForm):
         widgets = {
             'title' : forms.TextInput(attrs = {'placeholder': 'Titre'}),
             'content' : forms.Textarea(attrs = {'placeholder': 'Contenu'}),
-            'theme' : widget=forms.CheckboxSelectMultiple()
+            'theme' : forms.CheckboxSelectMultiple()
         }
 
 

@@ -33,7 +33,6 @@ def home(request):
                     postList.append(post)
 
     for _post in postList:
-        print(_post.theme)
         comment = Comment.objects.filter(post=_post).count()
         postDic[_post] = (comment)
     addPost(request)
@@ -139,10 +138,11 @@ def DetailPost(request, post_id):
     else:
         form = CommentForm()
 
-    return render(request, 'posts/post_detail.html',
-                  {'post': _post, 'comments': comments, 'my_post': my_post, 'form': form, 'len': len(comments),
-                   'name': url})
+    return render(request, 'posts/post_detail.html', {'post': _post, 'comments': comments, 'my_post': my_post, 'form': form, 'len': len(comments), 'name': url})
 
+#def next_post(request, post_id):
+    #_prev = Post.objects.get(id=post_id) + 1
+    #DetailPost(request, _prev)
 
 def my_posts(request):
     postDic = {}
@@ -334,7 +334,7 @@ def comment_dislike(request, post_id, comment_id):
 
     return redirect('details', post.id)
 
-# class PostSearchListView(ListView):
+# class PostSearchListViedef next_post(request):w(ListView):
 #     model = Post
 #     context_object_name = "post_lst"
 #     template_name = "posts/index.html"

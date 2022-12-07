@@ -5,6 +5,7 @@
   <form class="post-form" enctype="multipart/form-data" method="POST">
     {% csrf_token %}
     {{ form.as_p}}
+    <input type="button" id="popuptheme" onclick="popup(this)" value="˄ Thèmes ˄"/>
     ...Ou ajouter un thème inexistant
     <input type="text" name="new_theme" placeholder="Votre thème" /><br/>
     <input type="submit" value="Ajouter"/>

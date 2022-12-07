@@ -5,20 +5,21 @@
 {% block content %}
 
 <main>
+  {% for th in post.theme.all %}
+    <span class="theme">{{ th }}</span><br/><br/>
+  {% endfor %}
     <span class="user">
     {% if request.user.image %}
         <img class="profile-image-resize" src="{{ post.user.image.url }}" alt="Photo de profil">
     {% else %}
-        <i class="fa-solid fa-circle-user"></i>
+        <i class="fa-solid fa-circle-user fa-3x"></i>
     {% endif %}
     &nbsp&nbsp&nbsp<span class="username">{{ post.user }}</span></span><br/>
-    <span class="post-title">{{ post.title }}</span>
-    {% for th in post.theme.all %}
-      <span class="theme">{{ th }}</span><br/>
-    {% endfor %}
+    <span class="post-title">{{ post.title }}</span><br/>
     {% if post.illustration %}
         <img class="image" src="{{ post.illustration.url }}" alt="illustration du post">
     {% endif %}
+    <br/>
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="post-content">{{ post.content }}</span><br/><br/>
     <span class="info">
         <br/>Ajouté le {{ post.addDate }} à {{ post.addHour }}
@@ -76,5 +77,8 @@
         <input type="submit" value="Ajouter"/>
     </form>
 </main>
+<div class="next">
+    <a class="next" href="{% url 'details' post.id|add:1 %}"><i class="fa-solid fa-angle-right fa-10x"></i><a/>
+</div>
 
 {% endblock %}

@@ -37,22 +37,9 @@ def home(request):
         postDic[_post] = (comment)
     addPost(request)
 
-    # return redirect('home')
-
     return render(request, 'posts/index.html',
                   {'postD': postDic, 'themes': themes, 'result': _request, 'page_obj': postList})
 
-
-# class PostListView(gnr.ListView):
-#     template_name = 'posts/index.html'
-#
-#     def get(self, request):
-#         postDic = {}
-#         queryset = Post.objects.all()
-#         for _post in queryset:
-#             comment = Comment.objects.filter(post = _post).count()
-#             postDic[_post] = (comment)
-#         return render(request, self.template_name, {'postDic':postDic})
 
 def connexion(request):
     if request.method == 'POST':
@@ -116,7 +103,24 @@ def logout_view(request):
 
 
 def DetailPost(request, post_id):
+    _postList = Post.objects.all().order_by('modifDate').reverse()
+    _postList = list(_postList)
     _post = Post.objects.get(id=post_id)
+
+    if _postList.index(_post) == len(_postList)-1 :
+        _next = _postList.index(_post)
+    else:
+        _next = _postList.index(_post) + 1
+
+    _next = _postList[_next].id
+
+    if _postList.index(_post) == 0 :
+        _previous = _postList.index(_post)
+    else:
+        _previous = _postList.index(_post) - 1
+
+    _previous = _postList[_previous].id
+
     url = _post.illustration.name
     comments = Comment.objects.filter(post=_post)
     my_post = []
@@ -138,7 +142,9 @@ def DetailPost(request, post_id):
     else:
         form = CommentForm()
 
-    return render(request, 'posts/post_detail.html', {'post': _post, 'comments': comments, 'my_post': my_post, 'form': form, 'len': len(comments), 'name': url})
+    return render(request, 'posts/post_detail.html', {'post': _post,
+     'comments': comments, 'my_post': my_post, 'form': form,
+     'len': len(comments), 'name': url, 'next': _next, 'previous': _previous})
 
 #def next_post(request, post_id):
     #_prev = Post.objects.get(id=post_id) + 1

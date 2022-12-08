@@ -77,8 +77,17 @@
         <input type="submit" value="Ajouter"/>
     </form>
 </main>
-<div class="next">
-    <a class="next" href="{% url 'details' post.id|add:1 %}"><i class="fa-solid fa-angle-right fa-10x"></i><a/>
-</div>
+
+{% if next != post.id %}
+  <div class="next">
+      <a class="next" href="{% url 'details' next %}"><i class="fa-solid fa-angle-right fa-10x"></i><a/>
+  </div>
+{% endif %}
+
+{% if previous != post.id %}
+  <div class="previous">
+      <a class="previous" href="{% url 'details' previous %}"><i class="fa-solid fa-angle-left fa-10x"></i><a/>
+  </div>
+{% endif %}
 
 {% endblock %}

@@ -453,12 +453,19 @@ textarea::placeholder
 
 .next
 {
-  position: absolute;
-  left: 75%;
-  top : 150%;
+  position: fixed;
+  left: 80%;
+  top : 60%;
 }
 
-.next:hover
+.previous
 {
-  color: blue;
+  position: fixed;
+  right: 80%;
+  top : 60%;
+}
+
+.next:hover, .previous:hover
+{
+  color: #a6c1b8;
 }

@@ -23,7 +23,7 @@
             <li class="post">
               <span class="user">
               {% if post.user.image %}
-                <img class="profile-image-resizex2" src="{{ post.user.image.url }}" alt="Photo de profil">
+                <img class="profile-image-resizex2" src="{{ post.user.image.url }}" alt="Photo de profil"/>
               {% else %}
                 <i class="fa-solid fa-circle-user fa-2x"></i>
               {% endif %}
@@ -57,7 +57,11 @@
     {% endfor %}
     <HR NOSHADE>
   </ul>
-  <a href="{% url 'add-post' %}" style="text-align: center; padding-top : 50%"><h2 class="post-add"><i class="fa-sharp fa-solid fa-plus"></i>&nbsp&nbsp&nbsp&nbspAjouter votre article</h2></a>
+  <a href="{% url 'add-post' %}">
+    <h2 class="post-add">
+      <i class="fa-sharp fa-solid fa-plus"></i>&nbsp&nbsp&nbsp&nbspAjouter votre article
+    </h2>
+  </a>
 
   <div class="pagination">
     <span class="step-links">

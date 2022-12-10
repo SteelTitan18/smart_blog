@@ -83,18 +83,47 @@ def addPost(request):
         # post.content = request.POST['content']
         # post.save()
         form = PostForm(request.POST, request.FILES, instance=post)
-        if request.POST["theme"] == "" and request.POST["new_theme"] != "":
-            theme = Theme()
-            theme.label = request.POST["new_theme"]
-            theme.save()
-            request.POST["theme"] = theme
+        #form.save(commit=False)
+        spliting(request)
+        #if request.POST["new_theme"] != "" or request.POST.get('theme', ""):
+        #    div = Theme()
+        #    div.label = " "
+        #    div.save()
+        #    request.POST["theme"] = div
+        #    theme = Theme()
+        #    theme.label = request.POST["new_theme"]
+            #request.POST["theme"] = request.POST["theme"]
+        #    theme.save()
+            #post.theme.add(theme)
+
         if form.is_valid():
             form.save()
+            #spliting(post, request)
+            #post.theme.add(theme)
             return redirect('home')
     else:
         form = PostForm()
 
     return render(request, 'posts/addPost.html', {'form': form})
+
+def spliting(request):
+    themes_List = []
+    if request.POST["new_theme"] != "":
+        themes = request.POST["new_theme"]
+        themes_list = themes.split(",")
+        for th in themes_list:
+            theme = Theme()
+            theme.label = th
+            theme.save()
+            themes_List.append(theme)
+
+        if request.POST.get('theme', False):
+            themes_List.append(request.POST["theme"])
+        #if not request.POST.get('theme', False):
+            #request.POST["theme"] = theme.id
+        #else :
+            #post.theme.add(theme)
+        request.POST["theme"] = themes_List
 
 
 def logout_view(request):
